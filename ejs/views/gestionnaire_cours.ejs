@@ -1,0 +1,79 @@
+<!-- this page will containe a table where we show the books + we can update or delete or show or create-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>gestionnaire cours</title>
+    <style>
+        .h1{
+            text-align: center;
+            margin-bottom: 100px;
+            font-weight: bold;
+            font-size: 3.6em;
+        }
+
+          .title{
+            color:gray;
+             text-decoration: none;
+            margin-top: 5px;
+        }
+        .btn-add-section{
+            text-align: center;
+            margin-top: 200px;
+        }
+        a{
+            text-decoration: none;
+             color: white;
+            width: 15%;
+             margin-bottom: 20px;
+           
+        }
+         .title{
+
+        margin: 20px;
+
+    }
+    </style>
+   
+</head>
+<body>
+    <div class="title">
+        <p class="h1">the cours :</p>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">title</th>
+                <th scope="col">description</th>
+                <th scope="col">urls</th>
+                <th scope="col">delete/update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% 
+            var i = 0;
+            cours.forEach(element => {
+                %>
+                <tr  scope="row">
+                    <td><%= element.title %></td>
+                    <td><%= element.description %></td>
+                    <td ><a class="link-primary" href="#"><%= element.url %></a></td>
+                    <td> <button type="submit"  class="btn btn-danger" ><a href="/gestionnaire_cours/delete/<%= i %>">delete</a></button>&nbsp; <button type="submit"  class="btn btn-primary" ><a href="/gestionnaire_cours/update/<%= i %>">update</a></button></td>
+                </tr>
+                <%
+            i++;
+            }) %>
+        </tbody>
+    </table>
+
+    <div class="btn-add-section">
+     <button type="submit"  class="btn btn-primary" >
+        <a href="/gestionnaire_cours/ajouter_cours">ajouter un livre</a> </button>
+    </div>
+ 
+    
+</body>
+</html>
